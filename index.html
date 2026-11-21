@@ -55,6 +55,7 @@
   .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 8px; vertical-align: -1px; }
 
   .shot { margin: 8px 0 0; }
+  video.tour { width: 100%; margin-top: 18px; border-radius: 16px; border: 1px solid var(--line); background: #000; display: block; }
   .shot img { width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 20px 60px rgba(0,0,0,.45); display: block; }
   .gallery { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 16px; margin-top: 22px; align-items: start; }
   .gallery figure { margin: 0; }
@@ -84,7 +85,7 @@
   <header>
     <img src="icon.png" alt="">
     <b>Interlude</b>
-    <nav><a href="#how">How it works</a><a href="#features">Features</a><a href="#screenshots">Screenshots</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></nav>
+    <nav><a href="#tour">Tour</a><a href="#how">How it works</a><a href="#features">Features</a><a href="#screenshots">Screenshots</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></nav>
   </header>
 
   <div class="hero">
@@ -99,6 +100,13 @@
   </div>
 
   <figure class="shot"><img src="app.jpg" alt="The Interlude window: status, KaraFun song, fade settings, and the song list with play controls" width="956" height="866"></figure>
+
+  <section id="tour">
+    <h2>Watch the 2-minute tour</h2>
+    <video class="tour" controls preload="metadata" playsinline poster="tutorial-poster.jpg">
+      <source src="tutorial.mp4" type="video/mp4">
+    </video>
+  </section>
 
   <section id="how">
     <h2>How it works</h2>
