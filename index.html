@@ -56,6 +56,12 @@
 
   .shot { margin: 8px 0 0; }
   .shot img { width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 20px 60px rgba(0,0,0,.45); display: block; }
+  .gallery { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 16px; margin-top: 22px; align-items: start; }
+  .gallery figure { margin: 0; }
+  .gallery img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); display: block; }
+  .gallery figcaption { color: var(--muted); font-size: 14px; margin-top: 10px; }
+  .gallery figcaption b { color: var(--text); }
+  @media (max-width: 760px) { .gallery { grid-template-columns: 1fr; } }
   .price { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
   .price .card.big { border-color: var(--sing); }
   .amount { font-size: 44px; font-weight: 800; margin-top: 6px; }
@@ -78,7 +84,7 @@
   <header>
     <img src="icon.png" alt="">
     <b>Interlude</b>
-    <nav><a href="#how">How it works</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></nav>
+    <nav><a href="#how">How it works</a><a href="#features">Features</a><a href="#screenshots">Screenshots</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></nav>
   </header>
 
   <div class="hero">
@@ -130,6 +136,15 @@
     <h2>Build your break playlists from your VirtualDJ library</h2>
     <p class="sub" style="font-size:16px">Interlude reads your VirtualDJ database and lists, so the songs you already own are ready to go. It only reads them. Your VirtualDJ files are never changed.</p>
     <figure class="shot"><img style="max-width:760px;margin:0 auto" src="library.jpg" alt="The Interlude Library window listing songs from a VirtualDJ database" width="720" height="640"></figure>
+  </section>
+
+  <section id="screenshots">
+    <h2>A look inside</h2>
+    <div class="gallery">
+      <figure><a href="singer.jpg" target="_blank" title="Click to enlarge"><img src="singer.jpg" alt="Interlude while a singer is up: music faded out, KaraFun song progress"></a><figcaption><b>Singer up.</b> Your music is faded out and paused. Interlude shows the KaraFun song and when the music will come back.</figcaption></figure>
+      <figure><a href="picker.jpg" target="_blank" title="Click to enlarge"><img src="picker.jpg" alt="Choosing a VirtualDJ list, organized in folders"></a><figcaption><b>Your VirtualDJ lists.</b> Browse them in the same folders as VirtualDJ, with how many songs each one has on your Mac.</figcaption></figure>
+      <figure><a href="setup.jpg" target="_blank" title="Click to enlarge"><img src="setup.jpg" alt="Interlude setup checklist"></a><figcaption><b>Quick setup.</b> A checklist walks you through connecting KaraFun and choosing your music.</figcaption></figure>
+    </div>
   </section>
 
   <section id="pricing">
