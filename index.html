@@ -54,6 +54,8 @@
   .legend { display: flex; gap: 20px; font-size: 14px; color: var(--muted); flex-wrap: wrap; }
   .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 8px; vertical-align: -1px; }
 
+  .shot { margin: 8px 0 0; }
+  .shot img { width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 20px 60px rgba(0,0,0,.45); display: block; }
   .price { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
   .price .card.big { border-color: var(--sing); }
   .amount { font-size: 44px; font-weight: 800; margin-top: 6px; }
@@ -76,19 +78,21 @@
   <header>
     <img src="icon.png" alt="">
     <b>Interlude</b>
-    <nav><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></nav>
+    <nav><a href="#how">How it works</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></nav>
   </header>
 
   <div class="hero">
     <div class="kicker">A karaoke companion for KaraFun users</div>
     <h1>Real music between singers.<br><em>Zero button mashing.</em></h1>
-    <p class="sub">Interlude is a Mac app that plays your own playlist between songs, then fades it out and back in by itself every time KaraFun starts and ends a track.</p>
+    <p class="sub">Interlude is a Mac app that plays your music between songs, then fades it out and back in by itself every time KaraFun starts and ends a track. Play your VirtualDJ lists or a folder of songs right inside Interlude, or use Spotify.</p>
     <div class="ctas">
       <a class="btn primary" href="https://buy.polar.sh/polar_cl_jI6cgy5D4PowfGdIEElCIovxnMeIaSB01gBQn06I5PE">Buy Interlude ($19.95)</a>
       <a class="btn ghost" href="https://github.com/interludekaraoke/interludekaraoke.github.io/releases/latest/download/Interlude.dmg">Download the free 14-day trial</a>
     </div>
     <p class="fine">One-time purchase. No subscription. Works on 2 Macs. Requires macOS 13 or later.</p>
   </div>
+
+  <figure class="shot"><img src="app.jpg" alt="The Interlude window: status, KaraFun song, fade settings, and the song list with play controls" width="952" height="734"></figure>
 
   <section id="how">
     <h2>How it works</h2>
@@ -101,21 +105,31 @@
       </div>
     </div>
     <div class="grid">
-      <div class="card"><div class="num" style="background:var(--music)">1</div><h3>Pick your playlist</h3><p>A folder of your own songs, one of your VirtualDJ playlists, Spotify, or VirtualDJ Automix. Your music, not the stock background tracks.</p></div>
+      <div class="card"><div class="num" style="background:var(--music)">1</div><h3>Pick your music</h3><p>One of your VirtualDJ lists, a playlist you build in Interlude, a folder of songs, Spotify, or VirtualDJ Automix. Your music, not the stock background tracks.</p></div>
       <div class="card"><div class="num" style="background:var(--sing)">2</div><h3>Run KaraFun like normal</h3><p>Hit play on the next singer. The music fades out of the way on its own.</p></div>
       <div class="card"><div class="num" style="background:#b9a6ff">3</div><h3>Never touch it</h3><p>Song ends, gets paused or skipped, and your playlist fades right back in.</p></div>
     </div>
   </section>
 
-  <section>
-    <h2>Made for the host's side of the booth</h2>
-    <div class="grid two">
-      <div class="card"><h3>Brings the music back early</h3><p>Your playlist starts a few seconds before the song ends, so there is never dead air.</p></div>
-      <div class="card"><h3>Remembers your volume</h3><p>Turn your music up or down during a break and that is where it comes back next time.</p></div>
-      <div class="card"><h3>Status at a glance</h3><p>A window and a menu bar icon show who is singing, what is playing and how much of the song is left.</p></div>
-      <div class="card"><h3>Plays your own songs</h3><p>Point Interlude at a folder of music or one of your VirtualDJ playlists and it shuffles it between singers. No other app needs to be open.</p></div>
+  <section id="features">
+    <h2>Everything a KJ needs between singers</h2>
+    <div class="grid">
+      <div class="card"><h3>Automatic fades</h3><p>The music fades out the moment the next singer starts and comes back a few seconds before their song ends. No dead air, no blasting the room.</p></div>
+      <div class="card"><h3>Built-in player</h3><p>Plays your VirtualDJ lists or a folder of MP3, M4A, WAV or FLAC files right inside Interlude. VirtualDJ doesn't even need to be open.</p></div>
+      <div class="card"><h3>Your whole VirtualDJ library</h3><p>Browse and search every song in your VirtualDJ database by title, artist, BPM, key or genre, and build your own playlists for the night.</p></div>
+      <div class="card"><h3>Pick the songs that play</h3><p>See every song in the list you're playing. Untick the ones you don't want, shuffle or play straight through, and line songs up with Play Next.</p></div>
+      <div class="card"><h3>Real player controls</h3><p>Previous, play/pause and next, a progress bar with time left, and double-click any song to play it now.</p></div>
+      <div class="card"><h3>Stays out of your way</h3><p>Pause means paused. Bring the music in during a song and it stays until the next singer. The menu bar icon shows what's happening at a glance.</p></div>
+      <div class="card"><h3>Remembers your volume</h3><p>Turn your music up or down during a break and that's where it comes back next time.</p></div>
       <div class="card"><h3>Your timing</h3><p>Choose how fast the music fades out and in, how early it returns, and how loud it starts.</p></div>
+      <div class="card"><h3>Works with Spotify and Automix</h3><p>Prefer Spotify or VirtualDJ Automix? Interlude fades and pauses those too.</p></div>
     </div>
+  </section>
+
+  <section id="library">
+    <h2>Build your break playlists from your VirtualDJ library</h2>
+    <p class="sub" style="font-size:16px">Interlude reads your VirtualDJ database and lists, so the songs you already own are ready to go. It only reads them. Your VirtualDJ files are never changed.</p>
+    <figure class="shot"><img style="max-width:760px;margin:0 auto" src="library.jpg" alt="The Interlude Library window listing songs from a VirtualDJ database" width="720" height="640"></figure>
   </section>
 
   <section id="pricing">
@@ -132,7 +146,10 @@
 
   <section id="faq">
     <h2>FAQ</h2>
-    <details><summary>What do I need?</summary><p>A Mac running macOS 13 or later and the KaraFun app for Mac. For the music between singers, drop your own songs (MP3, M4A, WAV or FLAC) into Interlude's music folder, pick one of your VirtualDJ playlists, or use Spotify or VirtualDJ.</p></details>
+    <details><summary>What do I need?</summary><p>A Mac running macOS 13 or later and the KaraFun app for Mac. For the music between singers, play one of your VirtualDJ lists or a folder of songs (MP3, M4A, WAV or FLAC) with Interlude's built-in player, or use Spotify or VirtualDJ Automix.</p></details>
+    <details><summary>Do I need VirtualDJ open?</summary><p>No. The built-in player plays your VirtualDJ lists and library by itself. VirtualDJ only needs to be open if you choose VirtualDJ Automix as your music source.</p></details>
+    <details><summary>Will it change my VirtualDJ library or lists?</summary><p>No. Interlude only reads them. Playlists you build in Interlude are saved separately.</p></details>
+    <details><summary>Why are some of my songs greyed out?</summary><p>Those songs are in your VirtualDJ database but their files aren't on this Mac right now, for example songs that are online-only or on a drive that isn't plugged in. Once the file is on your Mac, it plays.</p></details>
     <details><summary>Does it work on Windows?</summary><p>Not yet. Interlude is Mac only for now.</p></details>
     <details><summary>How do I get my license key?</summary><p>It is emailed to you right after purchase. You can also find it any time in your <a href="https://polar.sh/interlude-app/portal" style="color:var(--music)">customer portal</a>. Paste it into Interlude's Setup &amp; License window.</p></details>
     <details><summary>I got a new Mac. Can I move my license?</summary><p>Yes. Click "Deactivate This Mac" in Interlude on the old Mac, or remove the old Mac in your customer portal, then activate on the new one.</p></details>
