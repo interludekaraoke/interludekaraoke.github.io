@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interlude: auto-fading music between karaoke singers</title>
+<meta name="description" content="A Mac app for karaoke hosts using KaraFun. Your own playlist plays between singers and fades out and back in automatically.">
+<link rel="icon" href="icon.png">
+<style>
+  :root {
+    --bg: #0e0f1d; --panel: #171933; --text: #f4f3ff; --muted: #a3a6c9;
+    --sing: #ff4f8b; --music: #34e0c1; --line: #2a2d52;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    color: var(--text); line-height: 1.5;
+    background:
+      radial-gradient(900px 500px at 85% -5%, rgba(255,79,139,.16), transparent 60%),
+      radial-gradient(800px 600px at 0% 40%, rgba(52,224,193,.10), transparent 60%),
+      var(--bg);
+    min-height: 100vh;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+  header { display: flex; align-items: center; gap: 12px; padding: 24px 0; }
+  header img { width: 40px; height: 40px; border-radius: 10px; }
+  header b { font-size: 20px; }
+  header nav { margin-left: auto; display: flex; gap: 20px; font-size: 15px; }
+  header nav a { color: var(--muted); text-decoration: none; }
+  header nav a:hover { color: var(--text); }
+
+  .hero { padding: 56px 0 40px; }
+  .kicker { font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--music); font-weight: 700; }
+  h1 { font-size: clamp(36px, 6vw, 60px); line-height: 1.05; font-weight: 800; letter-spacing: -.02em; margin-top: 14px; }
+  h1 em { font-style: normal; color: var(--sing); }
+  .sub { font-size: 19px; color: var(--muted); margin-top: 18px; max-width: 640px; }
+  .ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+  .btn { display: inline-block; padding: 14px 24px; border-radius: 999px; font-weight: 700; text-decoration: none; font-size: 16px; }
+  .btn.primary { background: var(--sing); color: #fff; }
+  .btn.ghost { border: 1px solid var(--line); color: var(--text); background: rgba(255,255,255,.04); }
+  .fine { font-size: 13px; color: var(--muted); margin-top: 12px; }
+
+  section { padding: 44px 0; }
+  h2 { font-size: 30px; letter-spacing: -.01em; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 22px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+  .num { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; color: var(--bg); }
+  .card h3 { font-size: 19px; margin-top: 12px; }
+  .card p { color: var(--muted); margin-top: 6px; font-size: 15px; }
+
+  .timeline { margin-top: 22px; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+  .bar { display: flex; height: 26px; border-radius: 8px; overflow: hidden; margin-top: 8px; }
+  .bar span { display: block; }
+  .legend { display: flex; gap: 20px; font-size: 14px; color: var(--muted); flex-wrap: wrap; }
+  .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 8px; vertical-align: -1px; }
+
+  .price { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
+  .price .card.big { border-color: var(--sing); }
+  .amount { font-size: 44px; font-weight: 800; margin-top: 6px; }
+  ul.checks { list-style: none; margin-top: 12px; }
+  ul.checks li { padding-left: 24px; position: relative; margin-top: 6px; color: var(--muted); font-size: 15px; }
+  ul.checks li::before { content: "✓"; position: absolute; left: 0; color: var(--music); font-weight: 800; }
+
+  details { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px 20px; margin-top: 10px; }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { color: var(--muted); margin-top: 10px; font-size: 15px; }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; margin-top: 30px; color: var(--muted); font-size: 13px; }
+  footer a { color: var(--muted); }
+  .grid.two { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 640px) { .grid.two { grid-template-columns: 1fr; } .price { grid-template-columns: 1fr; } header nav { display: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="icon.png" alt="">
+    <b>Interlude</b>
+    <nav><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></nav>
+  </header>
+
+  <div class="hero">
+    <div class="kicker">A karaoke companion for KaraFun users</div>
+    <h1>Real music between singers.<br><em>Zero button mashing.</em></h1>
+    <p class="sub">Interlude is a Mac app that plays your own playlist between songs, then fades it out and back in by itself every time KaraFun starts and ends a track.</p>
+    <div class="ctas">
+      <a class="btn primary" href="https://buy.polar.sh/polar_cl_jI6cgy5D4PowfGdIEElCIovxnMeIaSB01gBQn06I5PE">Buy Interlude ($19.95)</a>
+      <a class="btn ghost" href="https://github.com/interludekaraoke/interludekaraoke.github.io/releases/latest/download/Interlude.dmg">Download the free 14-day trial</a>
+    </div>
+    <p class="fine">One-time purchase. No subscription. Works on 2 Macs. Requires macOS 13 or later.</p>
+  </div>
+
+  <section id="how">
+    <h2>How it works</h2>
+    <div class="timeline">
+      <div class="legend"><span><i style="background:var(--sing)"></i>Singer up (your music faded out)</span><span><i style="background:var(--music)"></i>Your playlist</span></div>
+      <div class="bar">
+        <span style="flex:1;background:var(--music)"></span><span style="flex:3;background:var(--sing)"></span>
+        <span style="flex:1.2;background:var(--music)"></span><span style="flex:3;background:var(--sing)"></span>
+        <span style="flex:1;background:var(--music)"></span>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="num" style="background:var(--music)">1</div><h3>Pick your playlist</h3><p>Spotify or VirtualDJ Automix. Your own music, not the stock background tracks.</p></div>
+      <div class="card"><div class="num" style="background:var(--sing)">2</div><h3>Run KaraFun like normal</h3><p>Hit play on the next singer. The music fades out of the way on its own.</p></div>
+      <div class="card"><div class="num" style="background:#b9a6ff">3</div><h3>Never touch it</h3><p>Song ends, gets paused or skipped, and your playlist fades right back in.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Made for the host's side of the booth</h2>
+    <div class="grid two">
+      <div class="card"><h3>Brings the music back early</h3><p>Your playlist starts a few seconds before the song ends, so there is never dead air.</p></div>
+      <div class="card"><h3>Remembers your volume</h3><p>Turn your music up or down during a break and that is where it comes back next time.</p></div>
+      <div class="card"><h3>Status at a glance</h3><p>A window and a menu bar icon show who is singing, what is playing and how much of the song is left.</p></div>
+      <div class="card"><h3>Your timing</h3><p>Choose how fast the music fades out and in, how early it returns, and how loud it starts.</p></div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2>Pricing</h2>
+    <div class="price">
+      <div class="card"><h3>Free trial</h3><div class="amount">14 days</div>
+        <ul class="checks"><li>Every feature included</li><li>No card needed</li></ul>
+        <div class="ctas"><a class="btn ghost" href="https://github.com/interludekaraoke/interludekaraoke.github.io/releases/latest/download/Interlude.dmg">Download</a></div></div>
+      <div class="card big"><h3>Interlude license</h3><div class="amount">$19.95</div>
+        <ul class="checks"><li>One-time payment, yours to keep</li><li>Use it on 2 Macs, move it any time</li><li>Free updates for version 1</li></ul>
+        <div class="ctas"><a class="btn primary" href="https://buy.polar.sh/polar_cl_jI6cgy5D4PowfGdIEElCIovxnMeIaSB01gBQn06I5PE">Buy now</a></div></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>FAQ</h2>
+    <details><summary>What do I need?</summary><p>A Mac running macOS 13 or later, the KaraFun app for Mac, and either the Spotify app or VirtualDJ for your between-singer music.</p></details>
+    <details><summary>Does it work on Windows?</summary><p>Not yet. Interlude is Mac only for now.</p></details>
+    <details><summary>How do I get my license key?</summary><p>It is emailed to you right after purchase. You can also find it any time in your <a href="https://polar.sh/interlude-app/portal" style="color:var(--music)">customer portal</a>. Paste it into Interlude's Setup &amp; License window.</p></details>
+    <details><summary>I got a new Mac. Can I move my license?</summary><p>Yes. Click "Deactivate This Mac" in Interlude on the old Mac, or remove the old Mac in your customer portal, then activate on the new one.</p></details>
+    <details><summary>Does it need the internet during a show?</summary><p>No. Interlude only goes online to activate your key and to recheck it now and then. Being offline never turns it off.</p></details>
+    <details><summary>What about music licensing?</summary><p>Interlude controls the apps you already use. Playing music in a venue usually needs a public performance license, which is the venue's or your responsibility.</p></details>
+  </section>
+
+  <footer>
+    <p>Questions? <a href="mailto:bpmmentertainment@gmail.com">bpmmentertainment@gmail.com</a></p>
+    <p style="margin-top:8px">Interlude is not affiliated with or endorsed by KaraFun (Recisio), Spotify, or Atomix VirtualDJ. All trademarks belong to their owners.</p>
+    <p style="margin-top:8px">© 2026 Interlude</p>
+  </footer>
+</div>
+</body>
+</html>
